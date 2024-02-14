@@ -1,38 +1,142 @@
-.App {
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: purple;
+  width: 550px;
+  min-height: 350px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin: 5em 0;
+  gap: 2em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.container.end {
+  width: 800px;
+}
+
+.question {
+  font-size: 25px;
+  color: #fff;
+  font-size: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.answers-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 1.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.answer {
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.answer:hover {
+  background-color: orange;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.5);
+}
+
+.start-text {
+  text-align: center;
+  color: #fff;
+}
+
+.start-text p {
+  margin-top: 1em;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.start-btn,
+.restart-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 1.2em 2em;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  animation: blink 2s linear infinite;
+}
+
+.restart-btn {
+  margin-bottom: 10px;
+}
+
+.result-points {
+  color: #fff;
+}
+
+.correct-answers {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  text-align: center;
+  gap: 1em;
+  color: #fff;
+}
+
+.correct-answers-heading {
+  color: #fff;
+
+}
+
+hr {
+  width: 100%;
+}
+
+.correct-data {
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  width: 350px;
+  display: grid;
+}
+
+.correct-data h2 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  padding: 0 1em;
+  font-weight: normal;
+}
+
+.correct-data p {
+  font-weight: bold;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 0.5;
   }
 }
