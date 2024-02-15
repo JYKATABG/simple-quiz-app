@@ -104,6 +104,8 @@ const questionsData = [
   },
 ]
 
+const shuffledQuestions = questionsData.sort(() => Math.random() - .5)
+
 function App() {
 
   const [currentQuestion, setCurrentQuestion] = useState(1);
@@ -113,9 +115,9 @@ function App() {
   const [isEnded, setIsEnded] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState([]);
 
+  console.log(shuffledQuestions);
 
   useEffect(() => {
-    const shuffledQuestions = questionsData.sort(() => Math.random() - .5)
     setQuestion(shuffledQuestions[currentQuestion - 1]);
   }, [questionsData, currentQuestion])
 
@@ -169,7 +171,7 @@ function App() {
               <h2 className='result-points'>Your result is: {points} Points</h2>
             </div>
             <hr />
-            <h3 className='correct-answers-heading'>All your correct answers:</h3>
+            <h3 className='correct-answers-heading'>Your correct answers:</h3>
             <div className='correct-answers'>
               {correctAnswers.map((a) => (
                 <div className='correct-data'>
